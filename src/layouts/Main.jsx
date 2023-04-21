@@ -12,7 +12,7 @@ const Main = () => {
     return (
         <div>
             <Header> </Header>
-           
+           <NavigationBar></NavigationBar>
             <Container>
       <Row>
         <Col lg={3}>
