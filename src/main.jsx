@@ -20,6 +20,8 @@ import AuthProvider from './providers/AuthProvider';
 import LoginLayOut from './layouts/LoginLayOut';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Register/Register';
+import PrivateRoute from './routes/PrivateRoute';
+import Terms from './pages/Shared/Terms/Terms';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:'register',
         element:<Register></Register>
+      },
+      {
+        path:'terms',
+        element:<Terms></Terms>
       }
     ]
 
@@ -49,7 +55,7 @@ const router = createBrowserRouter([
       {
         path:':id',
         element:<Category></Category>,
-        loader:({params})=>fetch(`http://localhost:5000/categories/${params.id}`)
+        loader:({params})=>fetch( `http://localhost:5000/categories/${params.id}`)
       }
       
     ]
@@ -60,7 +66,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:':id',
-        element:<News></News>,
+        element:<PrivateRoute><News></News></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/news/${params.id}`)
 
       }
